@@ -1,0 +1,53 @@
+/* Enter your custom styles here */
+.sapMSampleTileContainer {
+    width: 100%;
+}
+/* TILES PARA PLAN DE VENTA */
+.tituloTileCustom{
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.TwoByOneCustom {
+    width: 17rem;
+    height: 12rem;
+}
+
+.paddingContador {
+	padding-top: 2rem;
+}
+
+.contador {
+	padding-left: 0.666rem;
+	padding-right: 0.666rem;
+}
+
+.numContador {
+	font-size: 1.666rem;
+}
+/* TILES PARA PLAN DE VENTA*/
+
+.green {
+    background-color: #66FF33;
+}
+.red {
+    background-color: #FF3300;
+}
+.yellow {
+    background-color: #FFFF66;
+}
+       
+.cellBorderRight {
+	border-right: 1px solid lightgray;
+}
+
+.cellBorderLeft {
+	border-left: 1px solid lightgray;
+}
+
+#dialogError-icon {
+	color:red;
+}
+.tituloGrande {
+    font-size: 1.3rem;
+}

@@ -1,0 +1,155 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="ZCatalogoMesa.zcatalogo.controller.ListadoPromoMain">
+	<App>
+		<pages>
+			<Page title="LISTADO DE PROMOCIONES" showNavButton="true" navButtonPress="onBack" id="idTitulo">
+				<content>
+					<!--<Panel xmlns="sap.m" width="auto" expandable="false" expanded="true" id="panel0">-->
+					<!--	<headerToolbar>-->
+					<!--		<Toolbar id="toolbar1">-->
+					<!--			<Title text="" id="tTitulo"/>-->
+					<!--			<ToolbarSpacer/>-->
+					<!--		</Toolbar>-->
+					<!--	</headerToolbar>-->
+					<!--	<content>-->
+					<ObjectHeader binding="{/ProductCollection/0}" title="Acción Promocional" condensed="true" number="0" numberUnit="Total registro"
+						id="idHeadre1">
+						<ObjectAttribute text="" id="idHeadAtri"/>
+					</ObjectHeader>
+					<Table items="{TabPromo>/DATA}" id="table1" showNoData="false" class="sapUiTinyMarginBegin sapUiTinyMarginTop sapUiTinyMarginEnd"
+						growing="true" growingThreshold="1000">
+						<items>
+							<ColumnListItem type="Active" id="item1" selected="true">
+								<!--<Link text="v1" href="url" />-->
+								<cells>
+									<Link text="{TabPromo>Idcatalogo}" id="text1" press="onLinkAccion"/>
+									<Text text="{TabPromo>Nomcatalogo}" id="text2"/>
+									<Text text="{TabPromo>Idpromo}" id="text3" textAlign="End"/>
+									<Text text="{TabPromo>Nompromo}" id="text4"/>
+									<Text text="{TabPromo>Denompromoc}" id="text5"/>
+									<Text text="{TabPromo>Stcentro}" id="text6"/>
+									<Text text="{TabPromo>Stcyp}" id="text7"/>
+									<Text text="{TabPromo>Stpangui}" id="text8"/>
+									<Text text="{TabPromo>Stfinal}" id="text9"/>
+									<Text text="{TabPromo>Estadotxt}" id="text13"/>
+									<Button xmlns="sap.m" id="button0" icon="sap-icon://display" press="onVisual"/>
+									<Button xmlns="sap.m" id="button1" icon="sap-icon://edit" press="onModificar"/>
+									<Button xmlns="sap.m" id="button2" icon="sap-icon://add-document" press="onNuevoPromo"/>
+									<Button xmlns="sap.m" id="button3" enabled="{path: 'TabPromo>Estado', formatter: '.formatterBorrarBtn'}" icon="sap-icon://delete"
+										press="onBorrarPromo"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+						<columns>
+							<Column id="column1" visible="true" demandPopin="true" hAlign="Center" width="8%">
+								<header>
+									<Label text="ID ACC.P" id="label1" wrapping="true"/>
+								</header>
+							</Column>
+							<Column id="column2" visible="true" demandPopin="true" width="14%">
+								<header>
+									<Label text="NOM ACCIÓN.P" id="label2" wrapping="true"/>
+								</header>
+							</Column>
+							<Column id="column3" visible="true" demandPopin="true" hAlign="Center" width="8%">
+								<header>
+									<Label text="ID PROMO" id="label3" wrapping="true"/>
+								</header>
+							</Column>
+							<Column id="column4" demandPopin="true" width="10%">
+								<header>
+									<Label text="PROMOCIÓN" id="label4" wrapping="true"/>
+								</header>
+							</Column>
+							<Column id="column5" demandPopin="true" width="10%">
+								<header>
+									<Label text="TIPO PROMO" id="label5" wrapping="true"/>
+								</header>
+							</Column>
+							<Column id="column6" demandPopin="true" width="6%">
+								<header>
+									<Label text="STS CENTRO" id="label6" wrapping="true"/>
+								</header>
+							</Column>
+							<Column id="column7" demandPopin="true" width="7%">
+								<header>
+									<Label text="STS CyP" id="label7" wrapping="true"/>
+								</header>
+							</Column>
+							<Column id="column8" demandPopin="true" width="7%">
+								<header>
+									<Label text="STS PANGUI" id="label8" wrapping="true"/>
+								</header>
+							</Column>
+							<Column id="column9" demandPopin="true" width="7%">
+								<header>
+									<Label text="STS FINAL" id="label9" wrapping="true"/>
+								</header>
+							</Column>
+							<Column id="column13" demandPopin="true" width="9%">
+								<header>
+									<Label text="ESTADO" id="label13" wrapping="true"/>
+								</header>
+							</Column>
+							<Column id="column10" width="4%" demandPopin="true">
+								<header>
+									<Label text="" id="label10" wrapping="true"/>
+								</header>
+							</Column>
+							<Column id="column11" width="4%" demandPopin="true">
+								<header>
+									<Label text="" id="label11" wrapping="true"/>
+								</header>
+							</Column>
+							<Column id="column12" width="4%" demandPopin="true">
+								<header>
+									<Label text="" id="label12" wrapping="true"/>
+								</header>
+							</Column>
+							<Column id="column133" width="4%" demandPopin="true">
+								<header>
+									<Label text="" id="label133" wrapping="true"/>
+								</header>
+							</Column>
+						</columns>
+					</Table>
+					<!--	</content>-->
+					<!--</Panel>-->
+					<!--	<Panel>
+						
+						
+					<content>
+						
+						
+					    <Button xmlns="sap.m" text="Button" id="button3"/>
+						
+						
+					</content>
+						
+						
+					</Panel>-->
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<MenuButton text="Bajar Excel" type="Accept">
+							<menu>
+								<Menu>
+									<items>
+										<MenuItem text="Campaña y Promociones" icon="sap-icon://bookmark" press="onClick"/>
+										<MenuItem text="Pangui" icon="sap-icon://blur" press="onDesPangui"/>
+									</items>
+								</Menu>
+							</menu>
+						</MenuButton>
+						<!--<Button text="Bajar Excel" type="Accept" id="Guardar" press="onClick" icon="sap-icon://sys-next-page"/>-->
+						<Button text="Nuevo" type="Accept" id="NuevaPromo" press="onNewPro" icon="sap-icon://document"/>
+						<customData>
+							<core:CustomData key="idbotton" value="CS"/>
+						</customData>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,62 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" 
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified">
+	<P13nDialog
+        ok="cerrarDialogCodigos"
+        cancel="cerrarDialogCodigos"
+        title="CÓDIGOS">
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+			<f:content>
+				<Label text="Tipo de ingreso"/>
+				<!--<Input valueHelpRequest="ayudaTipoIngreso" showValueHelp="true" valueHelpOnly="true"/>-->
+				<Select	items="{/CombosPangui/TipoIngreso}" width="50%">
+					<core:Item key="{TipoIng}" text="{DesTing}" />
+				</Select>					
+
+				<Label text="Código"/>
+				<HBox>
+					<Input id="IdSkuFrag"/>
+					<Button icon="sap-icon://add"  press="onValidarSku"/>														
+				</HBox>
+			</f:content>
+		</f:SimpleForm>
+		
+		<Table noDataText="" items="{TabSku>/DATA}" mode="MultiSelect" id="idTableSku">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="Listado de SKU" level="H2"/>
+					<ToolbarSpacer/>
+					<Button text="Eliminar"  icon="sap-icon://delete" press="onEliminaSku" />
+					<u:FileUploader id="fileUploader"  buttonText="Subir Excel" change="handleUploadPress" icon="sap-icon://upload"
+							buttonOnly="true"/>
+				</Toolbar>
+			</headerToolbar>					
+			<columns>
+				<Column hAlign="Center" width="12%">
+					<header>
+						<Label text="CÓDIGO"/>
+					</header>
+				</Column>
+				<Column hAlign="Center">
+					<header>
+						<Label text="DESCRIPCIÓN"/>
+					</header>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Link text="{TabSku>IdSku}"  press="onLinkAccion"/>
+						<Text text="{TabSku>NomSku}" />
+						<Text text="{TabSku>Idposnr}" />
+						
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+
+        
+	</P13nDialog>
+</core:FragmentDefinition>

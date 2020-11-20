@@ -1,0 +1,101 @@
+<mvc:View id="ViewNuevaPromo" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="ZCatalogoMesa.zcatalogo.controller.ZNuevaPromo" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" displayBlock="true">
+	<App id="app2">
+		<pages>
+			<Page title="PROMOCIÓN" showNavButton="true" navButtonPress="onBack">
+				<content>
+					<Toolbar id="toolbar1">
+						<Title text="Nueva Promoción" class="sapUiLargeMarginBegin tituloGrande"/>
+					</Toolbar>
+					<Toolbar id="toolbar2">
+						<Label text="N°Catalogo" class="sapUiLargeMarginBegin"/>
+						<Text text="" id="lbNumCatalogo" class="sapMH4FontSize"/>
+						<Label text="N°Promo " class="sapUiLargeMarginBegin"/>
+						<Text text="" id="lbNumPromo" class="sapMH4FontSize"/>
+					</Toolbar>
+					<Panel xmlns="sap.m" width="auto" expandable="false" expanded="true" id="panel0" class="sapUiTinyMarginEnd">
+						<content>
+							<!--Nombre del catalogo>--> 
+							<!--<Label text="N°Catalogo: "/>-->
+							<!--<Label text="xxx" id="lbNumCatalogo" design="Bold"/>-->
+							<FlexBox renderType="Bare">
+								<f:SimpleForm id="FieldGroupView" minWidth="1024" maxContainerCols="2" layout="ResponsiveGridLayout" emptySpanL="0" emptySpanM="0"
+									columnsL="2" columnsM="2" validateFieldGroup="onValidateFieldGroup" width="100%">
+									<f:content>
+										<!--N° del catalogo>-->
+										<!--<Label text="N°Catalogo"/>-->
+										<!--<Text text="" id="lbNumCatalogo"/>-->
+										<!--N° del Promocion>-->
+										<!--<Label text="N°Promo "/>-->
+										<!--<Text text="" id="lbNumPromo"/>-->
+										<Label text="Nombre de la Promoción"/>
+										<Input fieldGroupIds="Información Catalogo" id="NombreCat" width="480px"/>
+										<Label text="Fecha de vigencia"/>
+										<FlexBox>
+											<items>
+												<DateRangeSelection id="DRS1" delimiter="--" displayFormat="yyyy/MM/dd" change="handleChange" width="320px" class="sapUiSmallMarginEnd"/>
+												<!--<Button xmlns="sap.m" id="IdExtFecha" icon="sap-icon://accelerated" press="OnExtFecha" width="5%"/>-->
+												<!--<ToggleButton icon="sap-icon://accelerated" enabled="true" pressed="false" press="onHabiltarExt"/>-->
+											</items>
+										</FlexBox>
+										<!--<Label text="Extender/Caducar"/>-->
+										<!--<DatePicker id="DP1" change="handleChange" displayFormat="yyyy/MM/dd" width="180px" visible="false"/>-->
+										<Label text="Estado Promo"/>
+										<Select items="{/ListEstadoPromo}" width="320px" id="idListEstado" change="onCambiarEsta">
+											<core:Item key="{Codstd}" text="{Desstd}"/>
+										</Select>
+										<Label text="Stock Disponible"/>
+										<Input id="IdEstock" width="320px" type="Number" visible="false"/>
+										<Label text="Plan de Ventas(Q)"/>
+										<Input id="IdPlanVenQ" width="320px" type="Number" visible="false"/>
+										<Label text="Plan de Ventas($)"/>
+										<Input id="IdPlanVenD" width="320px" liveChange="onFormat" visible="false"/>
+										<Label text="Aplica Internet" class="sapUiTinyMarginTop"/>
+										<CheckBox text="" id="chkInternet" visible="false"/>
+									</f:content>
+								</f:SimpleForm>
+								<f:SimpleForm backgroundDesign="Transparent" layout="ResponsiveGridLayout" visible="true" width="60%" id="SimpleExten">
+									<l:BlockLayout id="BlockLayoutTwo" background="Dashboard">
+										<l:BlockLayoutRow accentCells="Accent1">
+											<l:BlockLayoutCell width="3">
+												<f:SimpleForm title="Extender/Caducar Promoción" backgroundDesign="Transparent" layout="ResponsiveGridLayout" visible="true">
+													<DatePicker id="DP2" displayFormat="yyyy/MM/dd" width="180px" visible="true" valueFormat="yyyy/MM/dd"/>
+													<HBox>
+														<Label text="Estado: " class="sapUiSmallMarginEnd" textAlign="End"/>
+														<Text text=" En Aprobación" id="lbNumCatalogo2"/>
+													</HBox>
+												</f:SimpleForm>
+											</l:BlockLayoutCell >
+										</l:BlockLayoutRow>
+									</l:BlockLayout>
+								</f:SimpleForm>
+								<items/>
+							</FlexBox>
+						</content>
+					</Panel>
+						<Panel xmlns="sap.m" width="auto" expandable="false" expanded="true" id="panel2">
+						<headerToolbar>
+							<OverflowToolbar>
+								<Title text="Omitir" />
+							</OverflowToolbar>
+						</headerToolbar>
+						<CheckBox text="Omitir Carteleria" id="chk1" class ="sapUiTinyMarginEnd"/>
+						<CheckBox text="Omitir Pangui" id="chk2" class ="sapUiTinyMarginEnd"/>
+						<Button xmlns="sap.m" text="" id="button8" icon="sap-icon://save"  press="onGrabarCabecera" class ="sapUiTinyMarginBegin"/>
+					</Panel>
+					<Panel xmlns="sap.m" width="auto" expandable="false" expanded="true" id="panel1">
+						<content>
+							<Button xmlns="sap.m" id="button2" text="Carga de Centro" icon="sap-icon://building" press="onClick"/>
+							<Button xmlns="sap.m" text="Datos Adicionales" id="button7" icon="sap-icon://sys-add" visible="true" press="onAdicional"/>
+							<Button xmlns="sap.m" id="button3" text="Carteleria" icon="sap-icon://bookmark" press="onCampañaPromo"/>
+							<Button xmlns="sap.m" text="Pangui" id="button4" icon="sap-icon://blur" press="onPangui"/>
+							<Button xmlns="sap.m" text="Grabar" id="button5" icon="sap-icon://save" visible="false" press="onGrabarCabecera"/>
+							<Button xmlns="sap.m" text="Extender" id="button6" icon="sap-icon://save" visible="false" press="onGrabarExtencion"/>
+						</content>
+					</Panel>
+				
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

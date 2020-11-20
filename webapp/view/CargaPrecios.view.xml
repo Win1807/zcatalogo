@@ -1,0 +1,166 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:u="sap.ui.unified" controllerName="ZCatalogoMesa.zcatalogo.controller.CargaPrecios">
+	<SplitContainer id="SplitContDemo" initialDetail="detail" initialMaster="master">
+		<detailPages>
+			<Page id="detail" title="PRECIOS POR ZONA" class="sapUiStdPage">
+				<content>
+					<!--<Label text="Detail page 1"/>-->
+					<!--<Button text="Go to Detail page2" press="onPressNavToDetail"/>-->
+					<Panel>
+						<Table noDataText="Drop column list items here and columns in the area above" items="{VTab>/DATA}" id="table1">
+							<items>
+								<ColumnListItem type="Active" id="item1">
+									<cells>
+										<Text text="{VTab>Zona}"/>
+										<!--<Text text="{VTab>Preciovig}"/>-->
+	
+										<!--<ObjectIdentifier title="{VTab>Preciovig}" titleActive="true"/>-->
+										<ObjectNumber number="{VTab>Preciovig}" unit="{VTab>Fr}"/>
+										<Input value="{VTab>Precvigpro}" textAlign="Center" liveChange="onFormat"/>
+										<Input value="{VTab>Precpropro}" textAlign="Center" liveChange="onFormat"/>
+										<Input value="{VTab>Promoprecio}" textAlign="Center" liveChange="onFormat"/>
+										<Input value="{VTab>Promotarjet}" textAlign="Center" type="Number"/>
+										<Input value="{VTab>Cantidad}" textAlign="Center" type="Number"/>
+										<Button xmlns="sap.m" id="button00" icon="sap-icon://display" press="onVisualCentro" />
+									</cells>
+								</ColumnListItem>
+							</items>
+							<headerToolbar>
+								<OverflowToolbar>
+									<content>
+										<!--<Title text="Products" level="H2"/>-->
+										<!--<ToolbarSpacer />-->
+										<CheckBox text="Precios Confirmados" id="idChkPrecios" select="onSelect"/>
+									</content>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column id="column3" width="10px" hAlign="Center" styleClass="cellBorderLeft cellBorderRight" demandPopin="true">
+									<header>
+										<Label text="Zona" wrapping="true"/>
+									</header>
+								</Column>
+								<Column id="column4" width="70px" hAlign="Center"  styleClass="cellBorderRight">
+									<header>
+										<Label text="Precio Vigente" wrapping="true" textAlign="Center"/>
+									</header>
+								</Column>
+								<Column id="column5" hAlign="Center" width="70px" styleClass="cellBorderRight">
+									<header>
+										<Label text="Precio Vigente Propuesto" wrapping="true" textAlign="Center" />
+									</header>
+								</Column>
+								<Column id="column6" hAlign="Center"  styleClass="cellBorderRight" width="70px">
+									<header>
+										<Label text="Precio Promo Todo Medio de Pago" wrapping="true" textAlign="Center"/>
+									</header>
+								</Column>
+								<Column id="column7" hAlign="Center"  styleClass="cellBorderRight" width="70px">
+									<header>
+										<Label text="Tarjeta Cencosud Promoción a Precio" wrapping="true" textAlign="Center"/>
+									</header>
+								</Column>
+								<Column id="column8" popinHAlign="Center" hAlign="Center"  styleClass="cellBorderRight" width="70px">
+									<header>
+										<Label text="Tarjeta Cencosud Promoción a %" textAlign="Center" wrapping="true"/>
+									</header>
+								</Column>
+								<Column id="column10" popinHAlign="Center" hAlign="Center"  styleClass="cellBorderRight" width="35px">
+									<header>
+										<Label text="Cantidad" textAlign="Center" wrapping="true"/>
+									</header>
+								</Column>
+								<Column id="column9" width="20px" hAlign="Center" styleClass="cellBorderRight">
+									<header>
+										<Label text="Centros" textAlign="Center" wrapping="true"/>
+									</header>
+								</Column>
+							</columns>
+						</Table>
+					</Panel>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<!--<Button text="Validar" type="Accept" id="ValSku" press="onClick" icon="sap-icon://survey"/>-->
+						<Button text="Guardar" id="idGuardar" type="Accept" press="onGuardar" icon="sap-icon://save"/>
+					</Toolbar>
+				</footer>
+			</Page>
+			<Page id="detailDetail" title="Detail Detail" class="sapUiStdPage" showNavButton="true" navButtonText="Back"
+				navButtonPress="onPressDetailBack">
+				<content>
+					<!--<VBox class="sapUiSmallMargin">-->
+					<!--	<Label text="This is Detail Page2" />-->
+					<!--	<Text text="Here you could change the Split Application mode. After the mode change, resize the browser window to see the difference in the master form behaviour." />-->
+					<!--	<RadioButtonGroup columns="1" width="500px" class="sapUiMediumMarginBottom" select="onPressModeBtn">-->
+					<!--		<buttons>-->
+					<!--			<RadioButton id="RB1-1" text="show/hide" selected="true"  />-->
+					<!--			<RadioButton id="RB1-2" text="stretch/compress"  />-->
+					<!--			<RadioButton id="RB1-3" text="hide"  />-->
+					<!--			<RadioButton id="RB1-4" text="popover"  />-->
+					<!--		</buttons>-->
+					<!--	</RadioButtonGroup>-->
+					<!--</VBox>-->
+				</content>
+			</Page>
+			<!--<Page id="detail2" title="Detail 3 Page" class="sapUiStdPage" showNavButton="true" navButtonText="Back" navButtonPress="onPressDetailBack">-->
+			<!--	<content>-->
+			<!--		<Label text="This is Detail Page3"/>-->
+			<!--		<Input/>-->
+			<!--		<Label text="Label 2"/>-->
+			<!--		<Input/>-->
+			<!--		<Label text="Label 3"/>-->
+			<!--		<Input/>-->
+			<!--		<Label text="Label 4"/>-->
+			<!--		<Input/>-->
+			<!--		<Label text="Label 5"/>-->
+			<!--		<Input/>-->
+			<!--	</content>-->
+			<!--</Page>-->
+		</detailPages>
+		<masterPages>
+			<Page id="master" title="LISTA DE SKU" icon="sap-icon://action" class="sapUiStdPage" showNavButton="true" navButtonPress="onBack">
+				<content>
+					<List items="{ListSku>/DATA}" mode="SingleSelectMaster" selectionChange="onSelectionChange" itemPress="onListItemPress" id="list1"
+						growing="true" growingThreshold="1000">
+						<headerToolbar>
+							<OverflowToolbar>
+								<content>
+									<SearchField liveChange="onSearch" width="auto"/>
+									<!--<Button xmlns="sap.m" id="button0" icon="sap-icon://download" type="Ghost" press="onBajarExcel" text="Bajar Excel"/>-->
+									<!--<Button xmlns="sap.m" id="button1" icon="sap-icon://upload" type="Ghost" press="onBack" text="Subir Excel"/>-->
+									<Button xmlns="sap.m" id="button2" icon="sap-icon://refresh" type="Ghost" press="onRefresh"/>
+								</content>
+							</OverflowToolbar>
+						</headerToolbar>
+						<items>
+							<StandardListItem type="Navigation" title="{ListSku>IdSku}" description="{ListSku>NomSku}" icon="{ListSku>Status}" id="item2"
+								press="onPressGoToMaster"/>
+						</items>
+					</List>
+				</content>
+				<footer>
+					<Toolbar id="idToolbarMaster">
+						<!--<ToolbarSpacer/>-->
+						<Button xmlns="sap.m" id="button0" icon="sap-icon://download" type="Ghost" press="onBajarExcel" text="Bajar Excel"/>
+						<u:FileUploader id="fileUploader" style="Ghost" buttonText="Subir Excel" change="handleUploadPress" icon="sap-icon://upload"
+							buttonOnly="true"/>
+					</Toolbar>
+				</footer>
+			</Page>
+			<!--<Page id="master2" title="Master 2" icon="sap-icon://action" class="sapUiStdPage" showNavButton="true"-->
+			<!--		navButtonPress="onPressMasterBack">-->
+			<!--	<content>-->
+			<!--		<List itemPress="onListItemPress">-->
+			<!--			<items>-->
+			<!--				<StandardListItem title="To Detail 1" type="Active" />-->
+			<!--				<StandardListItem title="To Detail 2" type="Active" />-->
+			<!--				<StandardListItem title="To Detail 3" type="Active" />-->
+			<!--			</items>-->
+			<!--		</List>-->
+			<!--	</content>-->
+			<!--</Page>-->
+		</masterPages>
+	</SplitContainer>
+</mvc:View>

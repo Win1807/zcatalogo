@@ -1,0 +1,113 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ZCatalogoMesa.zcatalogo.controller.CargaCarteleria" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="CARTELERIA" showNavButton="true" navButtonPress="onBack">
+				<content>
+					<Panel xmlns="sap.m" width="auto" expandable="false" expanded="true" id="panel0">
+						<headerToolbar>
+							<Toolbar id="toolbar1">
+								<Title text="Promocion Normal" id="textpromo"/>
+								<ToolbarSpacer/>
+								<!--<Button icon="sap-icon://settings"/>-->
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<HBox width="100%" id="hbox0" renderType="Bare">
+								<Label text="N° de Catalogo: " width="10%"/>
+								<Text xmlns="sap.m" text="" width="30%" id="IdtextCata"/>
+								<Label text="N° Promoción: " width="10%"/>
+								<Text xmlns="sap.m" text="" width="30%" id="IdtextPromo"/>
+							</HBox>
+						</content>
+					</Panel>
+					<Panel id= "panel4">
+						<f:SimpleForm id="FieldGroupView" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2" validateFieldGroup="onValidateFieldGroup">
+							<f:content>
+								<core:Title text="Ingrese los siguientes datos:"/>
+								<!--SKU>-->
+								<Label text="Material(SKU)"/>
+								<Input fieldGroupIds="Información Catalogo" id="InSku" visible="false"/>
+								<!--Descripcion-->
+								<Label text="Descripción"/>
+								<Input fieldGroupIds="Información Catalogo" id="InDescrip" visible="false"/>
+								<!--Complemento-->
+								<Label text="Complemento"/>
+								<Input fieldGroupIds="Información Catalogo" id="InComple" visible="false"/>
+								<!--NxZ-->
+								<Label text="NxZ"/>
+								<Input fieldGroupIds="Información Catalogo" id="InNxZ" visible="false"/>
+								<!--Descuento %-->
+								<Label text="%Descuento"/>
+								<Input fieldGroupIds="Información Catalogo" id="InPorcdcto" visible="false"/>
+								<!--Condicion-->
+								<Label text="Condición"/>
+								<Input fieldGroupIds="Información Catalogo" id="InCond" visible="false"/>
+								<!--Precio-->
+								<Label text="Precio"/>
+								<Input fieldGroupIds="Información Catalogo" id="InPrecio" visible="false" liveChange="onFormat" submit="onEnterTir"/>
+								<!--Cantida Cuota-->
+								<Label text="Cantidad Cuota"/>
+								<Input fieldGroupIds="Información Catalogo" id="InCantcuot" visible="false"/>
+								<!--Valor Cuota-->
+								<Label text="Valor Cuota"/>
+								<Input fieldGroupIds="Información Catalogo" id="InValorcuota" visible="false" />
+								<!--CAE-->
+								<Label text="CAE"/>
+								<Input fieldGroupIds="Información Catalogo" id="InCcae" visible="false"/>
+								<!--CTC-->
+								<Label text="CTC"/>
+								<Input fieldGroupIds="Información Catalogo" id="InCctc" visible="false"/>
+								<!--Puntos-->
+								<Label text="Puntos"/>
+								<Input fieldGroupIds="Información Catalogo" id="InPuntos" visible="false"/>
+								<!--Excepcion-->
+								<Label text="Excepcion"/>
+								<TextArea fieldGroupIds="Información Catalogo" id="InExcepcion" visible="false" maxLength="80"/>
+								
+								
+								
+								<!--Precio Antes-->
+								<Label text="Precio Antes"/>
+								<Input fieldGroupIds="Información Catalogo" id="InPrecioantes" visible="false" liveChange="onFormat" />
+								<!--Precio Referencial-->
+								<Label text="Precio Referencial"/>
+								<Input fieldGroupIds="Información Catalogo" id="InPrecioref" visible="false" liveChange="onFormat"/>
+
+								<!--Precio + -->
+								<Label text="Precio +"/>
+								<Input fieldGroupIds="Información Catalogo" id="InPrecioMas" visible="false" liveChange="onFormat"/>
+								
+								<!--Cantidad X-->
+								<Label text="Cantidad X"/>
+								<Input fieldGroupIds="Información Catalogo" id="InCantx" visible="false"/>
+								
+								<!--Cantidad y-->
+								<Label text="Cantidad Y"/>
+								<Input fieldGroupIds="Información Catalogo" id="InCanty" visible="false"/>
+								<!--fecha Vigencia desde-->
+								<!--<Label text="Fecha vigencia desde"/>
+								<Input fieldGroupIds="Información Catalogo" id="InFvd" visible="false"/>-->
+								<!--fecha Vigencia hasta-->
+								<!--<Label text="Fecha vigencia Hasta"/>
+								<Input fieldGroupIds="Información Catalogo" id="InFvh" visible="false"/>-->
+								<!--Fecha de vigencia Rango-->
+								<Label text="Fecha de vigencia"/>
+								<DateRangeSelection id="DRS1" delimiter="--" displayFormat="yyyy/MM/dd" change="handleChange" width="320px" visible="false"/>
+								<core:Title text=""/>
+							</f:content>
+						</f:SimpleForm>
+					</Panel>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button text="Guardar" type="Accept" id="Guardar" press="onClick"/>
+						<customData>
+							<core:CustomData key="idbotton" value="CS"/>
+						</customData>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

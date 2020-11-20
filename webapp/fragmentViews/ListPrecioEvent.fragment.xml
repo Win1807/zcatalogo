@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<Dialog title="Descarga Precios Eventos">
+		<content>
+			<Panel>
+				<VBox width="100%" direction="Column" alignItems="Start">
+					<Text text="Elija el archivo a descargar"/>
+				</VBox>
+				<Select xmlns="sap.m" width="90%" id="idSelectEvento">
+					<items>
+						<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Precios Normales Propuestos" id="item1"/>
+						<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Precios Promocionales Propuestos" id="item2"/>
+						<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Precios Promocionales a Caducar" id="item3"/>
+						<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Precios Antes de Catalogo" id="item4"/>
+						<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Planilla de SKU’s para Marketing" id="item5"/>
+					</items>
+				</Select>
+			</Panel>
+		</content>
+		<buttons>
+			<Button text="Descargar" press="onDescargarAr" type="Emphasized"/>
+			<Button text="Cancelar" press="onCerrarFrag" type="Emphasized"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

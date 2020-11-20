@@ -1,0 +1,200 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "ZCatalogoMesa.zcatalogo",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/ZGSB_CATALOGO_ABASTECIMIENTO2_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.38.11"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "ZCatalogoMesa.zcatalogo.view.TipoAccionMain",
+			"type": "XML",
+			"async": true,
+			"id": ""
+		},
+		"dependencies": {
+			"minUI5Version": "1.60.1",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ZCatalogoMesa.zcatalogo.i18n.i18n"
+				}
+			},
+			"catalogAbast": {
+				"dataSource": "mainService",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "ZCatalogoMesa.zcatalogo.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "TipoAccionMain",
+					"pattern": "TipoAccionMain",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"TipoAccionMain"
+					]
+				},
+				{
+					"name": "CatalogoMain",
+					"pattern": "",
+					"target": []
+				},
+				{
+					"name": "ZNuevaPromo",
+					"pattern": "",
+					"target": []
+				},
+				{
+					"name": "CargaCentros",
+					"pattern": "",
+					"titleTarget": "",
+					"greedy": false,
+					"target": []
+				},
+				{
+					"name": "ListadoPromoMain",
+					"pattern": "",
+					"titleTarget": "",
+					"greedy": false,
+					"target": []
+				},
+				{
+					"name": "CargaSKU2",
+					"pattern": "",
+					"titleTarget": "",
+					"greedy": false
+				},
+				{
+					"name": "Catalog",
+					"pattern": "",
+					"titleTarget": "",
+					"greedy": false
+				}
+			],
+			"targets": {
+				"CatalogoMain": {
+					"viewType": "XML",
+					"viewId": "CatalogoMain",
+					"viewName": "CatalogoMain",
+					"viewLevel": 2,
+					"title": "CATALOGO"
+				},
+				"ZNuevaPromo": {
+					"viewType": "XML",
+					"viewName": "ZNuevaPromo",
+					"viewId": "ZNuevaPromo",
+					"viewLevel": 3
+				},
+				"CargaCentros": {
+					"viewType": "XML",
+					"viewName": "CargaCentros",
+					"viewId": "CargaCentros",
+					"viewLevel": 4
+				},
+				"CargaCarteleria": {
+					"viewType": "XML",
+					"viewName": "CargaCarteleria"
+				},
+				"ListadoPromoMain": {
+					"viewType": "XML",
+					"viewId": "ListadoPromoMain",
+					"viewName": "ListadoPromoMain"
+				},
+				"TipoAccionMain": {
+					"viewType": "XML",
+					"viewName": "TipoAccionMain",
+					"viewLevel": 1
+				},
+				"CargaSKU2": {
+					"viewType": "XML",
+					"viewName": "CargaSKU2"
+				},
+				"CargaPrecios": {
+					"viewType": "XML",
+					"viewName": "CargaPrecios"
+				},
+				"Pangui": {
+					"viewType": "XML",
+					"viewName": "Pangui"
+				},
+				"Catalog": {
+					"viewType": "XML",
+					"viewName": "Catalog"
+				},
+				"PlanVentaCorregido": {
+					"viewType": "XML",
+					"viewName": "PlanVentaCorregido"
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zcatalogopromo/webapp",
+		"_version": "1.1.0"
+	}
+}

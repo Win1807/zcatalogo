@@ -1,0 +1,122 @@
+<mvc:View controllerName="ZCatalogoMesa.zcatalogo.controller.Catalog" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:m="sap.m"
+	xmlns="sap.ui.table" xmlns:u="sap.ui.unified" xmlns:c="sap.ui.core" height="100%">
+	<m:Page id="page" title="Catalogación" showHeader="true" enableScrolling="true" showNavButton="true" navButtonPress="onBack">
+		<m:content>
+			<m:ObjectHeader title="Catalogo N°: {catalogaModel>/CatalogData/IdCatalogo}" condensed="true" number="0" numberUnit="Total registro"
+				id="idHeadAb">
+				<!--<m:ObjectAttribute text="Area: {catalogaModel>/CatalogData/NomArea}" id="idHeadArea"/>-->
+				<m:ObjectAttribute text="Descripción: {catalogaModel>/CatalogData/NomCatalogo}" id="idHeadDesc"/>
+			</m:ObjectHeader>
+			<Table rows="{/}" selectionMode="MultiToggle" enableSelectAll="true" rowSelectionChange="onSelectionChange" visibleRowCount="{/length}" paste="onPaste" ariaLabelledBy="title" id="TabCata">
+				<extension>
+					<!--<m:OverflowToolbar>
+						<m:Title id="title" text="Productos"/>
+					</m:OverflowToolbar>-->
+				</extension>
+				<rowSettingsTemplate>
+					<RowSettings highlight="{Status}"/>
+				</rowSettingsTemplate>
+				<columns>
+					<Column width="6rem">
+						<m:Label text="Articulo"/>
+						<template>
+							<m:Text text="{Matnr}" width="100%" textAlign="Center"/>
+						</template>
+					</Column>
+					<Column width="24rem">
+						<m:Label text="Descripción"/>
+						<template>
+							<m:Text text="{Maktx}"/>
+						</template>
+					</Column>
+					<Column width="6rem">
+						<m:Label text="Clase" width="100%" textAlign="Center"/>
+						<template>
+							<m:Text text="{NormaldestTxt}"/>
+						</template>
+					</Column>
+					
+					<Column width="6rem">
+						<m:Label text="Tipo" width="100%" textAlign="Center"/>
+						<template>
+							<m:Text text="{PrincrelacTxt}"/>
+						</template>
+					</Column>
+					<Column width="6rem">
+						<m:Label text="AS Canal"/>
+						<template>
+							<m:HBox>
+								<m:Text text="{Mvgr4}" width="100%" textAlign="Center"/>
+							</m:HBox>
+						</template>
+					</Column>
+					<!--<Column width="6rem">
+						<m:Label text="E502"/>
+						<template>
+							<m:HBox>
+								<m:Input value="{Name}" enabled="false"/>
+								<m:Input value="{Apellido}"/>
+							</m:HBox>
+						</template>
+					</Column>
+					<Column width="6rem">
+						<m:Label text="E503"/>
+						<template>
+							<m:HBox>
+								<m:Input value="{Name}" enabled="false"/>
+								<m:Input value="{Apellido}"/>
+							</m:HBox>
+						</template>
+					</Column>
+					<Column width="6rem">
+						<m:Label text="E510"/>
+						<template>
+							<m:HBox>
+								<m:Input value="..." enabled="false"/>
+								<m:Input value="..."/>
+							</m:HBox>
+						</template>
+					</Column>
+					<Column width="6rem">
+						<m:Label text="..."/>
+						<template>
+							<m:HBox>
+								<m:Input value="..." enabled="false"/>
+								<m:Input value="..."/>
+							</m:HBox>
+						</template>
+					</Column>
+					<Column width="6rem">
+						<m:Label text="..."/>
+						<template>
+							<m:HBox>
+								<m:Input value="..." enabled="false"/>
+								<m:Input value="..."/>
+							</m:HBox>
+						</template>
+					</Column>
+					<Column width="6rem">
+						<m:Label text="..."/>
+						<template>
+							<m:HBox>
+								<m:Input value="..." enabled="false"/>
+								<m:Input value="..."/>
+							</m:HBox>
+						</template>
+					</Column>-->
+				</columns>
+			</Table>
+		</m:content>
+		<m:footer>
+			<m:Toolbar>
+				<m:ToolbarSpacer/>
+					<Button xmlns="sap.m" id="button0" icon="sap-icon://download" type="Ghost" press="excelManagement" text="Bajar Excel"/>
+						<u:FileUploader id="fileUploader" style="Ghost" buttonText="Subir Excel" change="onSubirArchivo" icon="sap-icon://upload"
+							buttonOnly="true"/>
+				
+				<m:Button text="Guardar" type="Accept" id="BtCatalog" press="onGuardarAbast"/>
+				
+			</m:Toolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

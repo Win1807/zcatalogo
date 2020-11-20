@@ -1,0 +1,198 @@
+<mvc:View controllerName="ZCatalogoMesa.zcatalogo.controller.Pangui" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" xmlns:u="sap.uxap" xmlns:l="sap.ui.layout" displayBlock="true">
+	<App id="app">
+		<pages>
+			<Page id="page" title="PANGUI" showNavButton="true" navButtonPress="onBack">
+				<content>
+					<u:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" showTitleInHeaderContent="true" showHeaderContent="true">
+						<u:headerTitle>
+							<u:ObjectPageHeader objectTitle="" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false" objectSubtitle="" id="idHeaderP"></u:ObjectPageHeader>
+						</u:headerTitle>
+						<u:headerContent>
+							<l:VerticalLayout>
+								<!--<ObjectStatus title="ID Promoción" text="{/PromoPanguiSel/TipoPromoP}"/>-->
+								<ObjectStatus title="ID Promoción" text="" id="idObjectNumPromo"/>
+								<!--<ObjectStatus title="Promoción" text="{/PromoPanguiSel/DenomPromo}"/>-->
+								<ObjectStatus title="Elija el tipo de promoción Pangui"/>
+								<Select change="onCambiarPromo" items="{/PromoPangui}" id="idSeletTipoPromo">
+									<core:Item key="{TipoPromoP}" text="{TipoPromoP} - {DenomPromo}"/>
+								</Select>
+							</l:VerticalLayout>
+						</u:headerContent>
+						<u:sections>
+							<u:ObjectPageSection title="Datos generales" showTitle="true">
+								<u:subSections>
+									<u:ObjectPageSubSection>
+										<u:blocks>
+											<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+												<f:content>
+													<Label text="Tipo de pack"/>
+													<Select visible="{= ${/PromoPanguiSel/TipoPack} === 'X'}" items="{/CombosPangui/TipoPack}" width="50%" id="idTipoPack">
+														<core:Item key="{TipoPack}" text="{DesTpack}"/>
+													</Select>
+													<Label text="Tipo de beneficio"/>
+													<Select visible="{= ${/PromoPanguiSel/TipoBenef} === 'X'}" items="{/CombosPangui/TipoBenef}" width="50%" id="idTipoBene">
+														<core:Item key="{TipoBenef}" text="{DesBenef}"/>
+													</Select>
+													
+													
+													<Label text="Condición"/>
+													<!--<Input visible="{= ${/PromoPanguiSel/TipoCond} === 'X'}" width="50%" id="idCondicion1"/>-->
+													<Select change="onCambiarCondi" visible="{= ${/PromoPanguiSel/TipoCond} === 'X'}" items="{/CombosPangui/TipoCondicion}" width="50%"
+														id="idCondicion1">
+														<core:Item key="{TipoCond}" text="{DesCond}"/>
+													</Select>
+													<Label text="Unidades de la Condición" id="idtxtUnidades"/>
+													<Input visible="{= ${/PromoPanguiSel/UnidCond} === 'X'}" width="50%" id="idUnidades1"/>
+													
+													
+													
+													
+													
+													
+													
+													<Label text="Condición grupo 2" />
+													<!--<Input visible="{= ${/PromoPanguiSel/TipoCond2} === 'X'}" width="50%" id="idCondicion2"/>-->
+													<Select change="onCambiarCondi2" visible="{= ${/PromoPanguiSel/TipoCond2} === 'X'}" items="{/CombosPangui/TipoCondicion}" width="50%" id="idCondicion2">
+														<core:Item key="{TipoCond}" text="{DesCond}"/>
+													</Select>
+													<Label text="Unidades grupo 2"  id="idtxtUnidades2" />
+													<Input visible="{= ${/PromoPanguiSel/UnidCond2} === 'X'}" width="50%" id="idUnidades2"/>
+													
+													<Label text="Beneficio grupo 2"/>
+													<Select visible="{= ${/PromoPanguiSel/TipoBgrupo} === 'X'}" items="{/CombosPangui/BenefGrupo}" width="50%" id="idTipoGrupo">
+														<core:Item key="{TipoBgrupo}" text="{DesBgrupo}"/>
+													</Select>
+													
+													<Label text="Condición grupo 3"/>
+													<!--<Input visible="{= ${/PromoPanguiSel/TipoCond3} === 'X'}" width="50%" id="idCondicion3"/>-->
+													<Select change="onCambiarCondi3" visible="{= ${/PromoPanguiSel/TipoCond3} === 'X'}" items="{/CombosPangui/TipoCondicion}" width="50%" id="idCondicion3">
+														<core:Item key="{TipoCond}" text="{DesCond}"/>
+													</Select>
+													<Label text="Unidades grupo 3" id="idtxtUnidades3"/>
+													<Input visible="{= ${/PromoPanguiSel/UnidCond3} === 'X'}" width="50%" id="idUnidades3"/>
+													
+													<!--<Select	visible="{= ${/PromoPanguiSel/Descto1} === 'X'}"-->
+													<!--	items="{/CombosPangui/GrupoDesc}" width="50%" id="idDescuento1">-->
+													<!--	<core:Item key="{TipoTde}" text="{DesTde}" />-->
+													<!--</Select>-->
+													
+													
+													<!--<Select	visible="{= ${/PromoPanguiSel/Descto2} === 'X'}"-->
+													<!--	items="{/CombosPangui/GrupoDesc}" width="50%" id="idDescuento2">-->
+													<!--	<core:Item key="{TipoTde}" text="{DesTde}" />-->
+													<!--</Select>-->
+													
+													
+													
+													
+													
+													
+													<Label text="Forma de pago 1"/>
+													<Select visible="{= ${/PromoPanguiSel/Fpago1} === 'X'}" items="{/CombosPangui/FormaPago}" width="50%" id="idFormaPago1">
+														<core:Item key="{Fpago}" text="{FpagoDes}"/>
+													</Select>
+													<Label text="Precio pack 1"/>
+													<Input visible="{= ${/PromoPanguiSel/PrecioP1} === 'X'}" width="50%" id="idPrecioPack1"/>
+													<Label text="Descuento 1"/>
+													<Input visible="{= ${/PromoPanguiSel/Descto1} === 'X'}" width="50%" id="idDescuento1"/>
+													<Label text="Lleva"/>
+													<Input visible="{= ${/PromoPanguiSel/Lleva} === 'X'}" width="50%" id="idLleva"/>
+													<Label text="Paga"/>
+													<Input visible="{= ${/PromoPanguiSel/Paga} === 'X'}" width="50%" id="idPaga"/>
+													<Label text="Forma de pago 2"/>
+													<Select visible="{= ${/PromoPanguiSel/Fpago2} === 'X'}" items="{/CombosPangui/FormaPago}" width="50%" id="idFormaPago2">
+														<core:Item key="{Fpago}" text="{FpagoDes}"/>
+													</Select>
+													<Label text="Precio pack 2"/>
+													<Input visible="{= ${/PromoPanguiSel/PrecioP2} === 'X'}" width="50%" id="idPrecioPack2"/>
+													<Label text="Descuento 2"/>
+													<Input visible="{= ${/PromoPanguiSel/Descto2} === 'X'}" width="50%" id="idDescuento2"/>
+													
+													<Label text="Lleva2"/>
+													<Input visible="{= ${/PromoPanguiSel/Lleva2} === 'X'}" width="50%" id="idLleva2"/>
+													<Label text="Paga2"/>
+													<Input visible="{= ${/PromoPanguiSel/Paga2} === 'X'}" width="50%" id="idPaga2"/>
+													
+													<Label text="Forma de pago 3"/>
+													<Select visible="{= ${/PromoPanguiSel/Fpago3} === 'X'}" items="{/CombosPangui/FormaPago}" width="50%" id="idFormaPago3">
+														<core:Item key="{Fpago}" text="{FpagoDes}"/>
+													</Select>
+													<Label text="Precio pack 3"/>
+													<Input visible="{= ${/PromoPanguiSel/PrecioP3} === 'X'}" width="50%" id="idPrecioPack3"/>
+													<Label text="Descuento 3"/>
+													<Input visible="{= ${/PromoPanguiSel/Descto3} === 'X'}" width="50%" id="idDescuento3"/>
+													
+													<Label text="Lleva3"/>
+													<Input visible="{= ${/PromoPanguiSel/Lleva3} === 'X'}" width="50%" id="idLleva3"/>
+													<Label text="Paga3"/>
+													<Input visible="{= ${/PromoPanguiSel/Paga3} === 'X'}" width="50%" id="idPaga3"/>
+													
+													
+												</f:content>
+											</f:SimpleForm>
+										</u:blocks>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+							<u:ObjectPageSection title="Ingreso de código" showTitle="true">
+								<u:subSections>
+									<u:ObjectPageSubSection>
+										<u:blocks >
+											<FlexBox >
+												<items>
+													<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+													visible="{= ${/PromoPanguiSel/TipoIng} === 'X'}" header="Total Cargado" subheader="" press="onVerCodigos" id="idGeneT1">
+														<TileContent unit="Tipo 1">
+															<NumericContent value="0" withMargin="false" id="idTotalG1"/>
+														</TileContent>
+													</GenericTile>
+													<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+													visible="{= ${/PromoPanguiSel/TipoIng2} === 'X'}" header="Total Cargado" subheader="" press="onVerCodigos" id="idGeneT2">
+														<TileContent unit="Tipo 2">
+															<NumericContent value="0" withMargin="false" id="idTotalG2"/>
+														</TileContent>
+													</GenericTile>
+													<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+													visible="{= ${/PromoPanguiSel/TipoIng3} === 'X'}" header="Total Cargado" subheader="" press="onVerCodigos" id="idGeneT3">
+														<TileContent unit="Tipo 3">
+															<NumericContent value="0" withMargin="false" id="idTotalG3"/>
+														</TileContent>
+													</GenericTile>
+												</items>
+											</FlexBox>
+										</u:blocks>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+							<u:ObjectPageSection title="Observaciones" showTitle="true">
+								<u:subSections>
+									<u:ObjectPageSubSection>
+										<u:blocks>
+											<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+												<f:content>
+													<Label text="Descripción promoción"/>
+													<TextArea visible="{= ${/PromoPanguiSel/Descrip} === 'X'}" id="idDescripcion" maxLength="200"/>
+													<Label text="Observación por comerciales"/>
+													<TextArea visible="{= ${/PromoPanguiSel/Observ} === 'X'}" id="idObservacion"  maxLength="200"/>
+												</f:content>
+											</f:SimpleForm>
+										</u:blocks>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+						</u:sections>
+					</u:ObjectPageLayout>
+				</content>
+				<footer>
+					<Toolbar>
+						<content>
+							<ToolbarSpacer/>
+							<Button text="Grabar" type="Emphasized" icon="sap-icon://save" press="onGrabar"/>
+						</content>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

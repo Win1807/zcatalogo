@@ -1,0 +1,185 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns="sap.m"
+	xmlns:u="sap.ui.unified" controllerName="ZCatalogoMesa.zcatalogo.controller.CatalogoMain" displayBlock="true">
+	<!--<Shell id="shell">-->
+	<!--xmlns:f="sap.f" xmlns:card="sap.f.cards" -->
+	<App id="app">
+		<pages>
+			<Page title="INGRESO DE CATALOGO" showNavButton="true" navButtonPress="onBack" id="idTituloPage">
+				<content>
+					<Panel>
+						<form:SimpleForm id="FieldGroupView2" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" emptySpanL="0"
+							emptySpanM="0" columnsL="2" columnsM="2" validateFieldGroup="onValidateFieldGroup">
+							<form:content>
+								<core:Title text="Parametro de Busqueda" id="idCore2"/>
+								<Label text="Nombre del Catalogo" labelFor="productInput" design="Bold" id="LabelCatList"/>
+								<Input id="productInput" type="Text" placeholder="" showSuggestion="true" valueHelpRequest="handleValueHelp" submit="onEnter2"
+									suggestionItemSelected="onSuggest" suggestionItems="{/ListCata}">
+									<suggestionItems>
+										<core:ListItem text="{NomCatalogo}" additionalText="{IdCatalogo}"/>
+									</suggestionItems>
+								</Input>
+								<Label text="ID Catalogo:" id="label0" design="Bold"/>
+								<Input xmlns="sap.m" id="input1" fieldWidth="25%" submit="onEnter"/>
+								<Button xmlns="sap.m" id="button0" icon="sap-icon://search" press="onBuscarCat" width="15%"/>
+								<core:Title text=""/>
+							</form:content>
+						</form:SimpleForm>
+					</Panel>
+					<!--<Panel>-->
+					<!--expanded="{device>/isNoPhone}"-->
+					<IconTabBar id="IdIconTab" expanded="true" class="sapUiResponsiveContentPadding" expandable="false">
+						<items>
+							<IconTabFilter icon="sap-icon://hint" text="Información" key="0">
+								<form:SimpleForm id="FieldGroupView" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" emptySpanL="0"
+									emptySpanM="0" columnsL="2" columnsM="2" validateFieldGroup="onValidateFieldGroup">
+									<form:content>
+										<!-- Información del catalogo -->
+										<core:Title text="Información Catalogo" id="idCore"/>
+										<!--Nombre del catalogo>-->
+										<Label text="Nombre"/>
+										<Input fieldGroupIds="Información Catalogo" id="NombreCat" blocked="true" fieldWidth="80%"/>
+										<!--Gerencia responsable-->
+										<Label text="Gerencia Responsable" id="txGerRespon"/>
+										<Input fieldGroupIds="Información Catalogo" id="GerRespon" blocked="true"/>
+										<!--Carga comercial (Fecha)-->
+										<Label text="Carga Comercial"/>
+										<Input fieldGroupIds="Información Catalogo" id="CargComerciD" width="100%" fieldWidth="100%" blocked="true"/>
+										<Input fieldGroupIds="Información Catalogo" value="" id="CargComerciH" width="100%" fieldWidth="100%" blocked="true">
+											<layoutData>
+												<l:GridData span="L4 M3 S3"/>
+											</layoutData>
+										</Input>
+										<!--Primera revisión comercial (Fecha)-->
+										<Label text="Primera Revisión"/>
+										<Input fieldGroupIds="Información Catalogo" id="PrimeraRevD" width="100%" fieldWidth="100%" blocked="true"/>
+										<Input fieldGroupIds="Información Catalogo" value="" id="PrimeraRevH" width="100%" fieldWidth="100%" blocked="true">
+											<layoutData>
+												<l:GridData span="L4 M3 S3"/>
+											</layoutData>
+										</Input>
+										<!--Segunda revisión comercial (Fecha)-->
+										<Label text="Segunda Revisión"/>
+										<Input fieldGroupIds="Información Catalogo" id="SegundaraRevD" width="100%" fieldWidth="100%" blocked="true"/>
+										<Input fieldGroupIds="Información Catalogo" value="" id="SegundaraRevH" width="100%" fieldWidth="100%" blocked="true">
+											<layoutData>
+												<l:GridData span="L4 M3 S3"/>
+											</layoutData>
+										</Input>
+										<!--Fecha carga de precios (Fecha)-->
+										<Label text="Carga de precios"/>
+										<Input fieldGroupIds="Información Catalogon" id="FechaPreD" width="100%" fieldWidth="100%" blocked="true"/>
+										<Input fieldGroupIds="Información Catalogo" value="" id="FechaPreH" width="100%" fieldWidth="100%" blocked="true">
+											<layoutData>
+												<l:GridData span="L4 M3 S3"/>
+											</layoutData>
+										</Input>
+										<!--Fecha de publicación (Fecha)-->
+										<Label text="Fecha de Publicación"/>
+										<Input fieldGroupIds="Información Catalogon" id="FechaPubD" width="100%" fieldWidth="100%" blocked="true"/>
+										<Input fieldGroupIds="Información Catalogo" value="" id="FechaPubH" width="100%" fieldWidth="100%" blocked="true">
+											<layoutData>
+												<l:GridData span="L4 M3 S3"/>
+											</layoutData>
+										</Input>
+										<!--<Label text="test label" visible ="false"/>-->
+										<!--<Input fieldGroupIds="Información Catalogon" id="FechaPubD22" width="100%" fieldWidth="100%" blocked="true "/>-->
+										<Label text="Fecha de vigencia"/>
+										<DateRangeSelection id="RangoPromo" delimiter="--" displayFormat="yyyy/MM/dd" change="handleChange" width="320px"/>
+										<!--<Label text="Extender/Caducar"/>-->
+										<!--<DatePicker id="DP1" change="handleChange" class="sapUiSmallMarginBottom" displayFormat="yyyy/MM/dd" />-->
+										<!--<CheckBox id="idCheck" text="" selected="true" select = "OnselcetCheck"/>-->
+										<core:Title text=""/>
+										<Button xmlns="sap.m" id="btGuardar" icon="sap-icon://save" press="onGuardarAccion" width="5%">
+											<layoutData>
+												<l:GridData span="L4 M3 S3"/>
+											</layoutData>
+										</Button>
+									</form:content>
+								</form:SimpleForm>
+							</IconTabFilter>
+							<IconTabFilter icon="sap-icon://add-product" count="" text="SKU">
+								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Gestión de SKU y Precios" press="onClick"
+									sizeBehavior="Small" id="tile0">
+									<TileContent unit="" footer="">
+										<ImageContent src="sap-icon://process"/>
+									</TileContent>
+								</GenericTile>
+							</IconTabFilter>
+							<!--descomentar -->
+							<IconTabFilter icon="sap-icon://notes" count="" text="Catalogación">
+								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Gestión Catalogación" subheader="" id="tile2"
+									press="onClickCatalog" sizeBehavior="Small">
+									<TileContent unit="" footer="">
+										<ImageContent src="sap-icon://process"/>
+									</TileContent>
+								</GenericTile>
+							</IconTabFilter>
+							<IconTabFilter icon="sap-icon://group" text="Plan de Ventas" id="IconTabPlanVentas" enabled="false">
+								<l:VerticalLayout class="sapMGT TwoByOneCustom sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout">
+									<Title text="Venta Historica" class="tituloTileCustom"/>
+									<Button icon="sap-icon://download" text="Descarga Venta Historica" type="Transparent" press="onDescargarExcelPlanVentas"/>
+								</l:VerticalLayout>
+								<l:VerticalLayout class="sapMGT TwoByOneCustom sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout">
+									<Title text="Plan Sugerido" class="tituloTileCustom"/>
+									<Button icon="sap-icon://download" text="Descarga Plan Venta Sugerido" type="Transparent" press="onDescargarExcelPlanVentas"/>
+									<u:FileUploader id="fileUploaderPlanSugerido" style="Transparent" buttonText="Carga Plan Venta Sugerido"
+										change="handleChangefileUploaderPlanVentas" icon="sap-icon://upload" buttonOnly="true"/>
+									<!--Contador Planner-->
+									<HBox class="contador paddingContador" justifyContent="End">
+										<Label text="{/CargadoSuge}/{/TotalSuge}" design="Bold" class="numContador"/>
+									</HBox>
+									<Label text="Fecha M: {/FechaModPl} {/HoraModPl} {/UserPlaner}" class="contador"/>
+								</l:VerticalLayout>
+								<l:VerticalLayout class="sapMGT TwoByOneCustom sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout">
+									<Title text="Plan Corregido" class="tituloTileCustom"/>
+									<Button icon="sap-icon://download" text="Descarga Plan Venta Corregido" type="Transparent" press="onDescargarExcelPlanVentas"/>
+									<u:FileUploader id="fileUploaderPlanCorregido" style="Transparent" buttonText="Carga Plan Venta Corregido"
+										change="handleChangefileUploaderPlanVentas" icon="sap-icon://upload" buttonOnly="true"/>
+									<Button icon="sap-icon://document" text="Pantalla Plan Venta Corregido" type="Transparent" press="handlePressCargaExcelPlanVenta"/>
+									<!--Contador PM-->
+									<HBox class="contador" justifyContent="End">
+										<Label text="{/CargadoCorre}/{/TotalCorre}" design="Bold" class="numContador"/>
+									</HBox>
+									<Label text="Fecha M: {/FechaModPm} {/HoraModPm} {/UserPm}" class="contador"/>
+								</l:VerticalLayout>
+								<l:VerticalLayout class="sapMGT TwoByOneCustom sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout">
+									<Title text="Reportes" class="tituloTileCustom"/>
+									<!--<Button icon="sap-icon://download" text="Descarga Reporte Antes de Vigencia" type="Transparent" press="onDescargarExcelPlanVentas"/>-->
+									<Button icon="sap-icon://download" text="Descarga Reporte Durante Vigencia" type="Transparent" press="onDescargarExcelPlanVentas"/>
+								</l:VerticalLayout>
+							</IconTabFilter>
+							<IconTabFilter icon="sap-icon://shelf" text="Mesa">
+								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Gestión Carteleria y Pangui" subheader="" id="tile7"
+									press="onClick" sizeBehavior="Small">
+									<TileContent unit="" footer="">
+										<ImageContent src="sap-icon://process"/>
+									</TileContent>
+								</GenericTile>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+					<!--</Panel>-->
+				</content>
+				<!--<footer>-->
+				<!--	<Toolbar>-->
+				<!--		<ToolbarSpacer/>-->
+				<!--		<Button text="Carga SKU" type="Accept" id="BtCargaSku2" press="onClick"/>-->
+				<!--		<Button text="Catalogación" type="Accept" id="BtCatalog" press="onClickCatalog"/>-->
+				<!--		<Button text="Plan Ventas" type="Accept" id="BtPlanVtas"/>-->
+				<!--		<customData>-->
+				<!--			<core:CustomData key="idbotton" value="CS"/>-->
+				<!--		</customData>-->
+				<!--		<customData>-->
+				<!--			<core:CustomData key="idbotton" value="CP"/>-->
+				<!--		</customData>-->
+				<!--		<Button text="Mesa" type="Accept" id="BtMesa" press="onClick"/>-->
+				<!--		<customData>-->
+				<!--			<core:CustomData key="idbotton" value="MS"/>-->
+				<!--		</customData>-->
+				<!--	</Toolbar>-->
+				<!--</footer>-->
+			</Page>
+		</pages>
+	</App>
+	<!--</Shell>-->
+</mvc:View>

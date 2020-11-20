@@ -1,0 +1,137 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"  xmlns:f="sap.ui.layout.form">
+	<Dialog title="Nueva Acción Promocional" contentWidth="60%">
+		<content>
+			<Panel id="cabFrag">
+				<f:SimpleForm id="FieldGroupView" minWidth="1024" maxContainerCols="2" layout="ResponsiveGridLayout" emptySpanL="0" emptySpanM="0"
+					columnsL="2" columnsM="2" validateFieldGroup="onValidateFieldGroup">
+					<f:content>
+						<Label text="Nombre Acción Promoción "/>
+						<Input fieldGroupIds="Información Promocional" id="NombreCat" width="50%"/>
+						<Label text="Fecha de vigencia"/>
+						<DateRangeSelection id="RangoPromo" delimiter="--" displayFormat="yyyy/MM/dd" change="handleChange" width="320px"/>
+					</f:content>
+				</f:SimpleForm>
+			</Panel>
+			<Panel expandable="true" expanded="true">
+					<headerToolbar>
+							<Toolbar id="toolbar1">
+								<Title text="Norte"/>
+								<ToolbarSpacer/>
+							
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<Table items="{TabNorte>/DATA}" id="table0" mode="MultiSelect">
+								<items>
+									<ColumnListItem type="Active" id="item0">
+										<cells>
+											<Text text="{TabNorte>Centro}" />
+											<Text text="{TabNorte>Name1}" />
+											<Text text="{TabNorte>Zona}" />
+
+										</cells>
+									</ColumnListItem>
+								</items>
+								<columns>
+									<Column id="column0" width="25%">
+										<header>
+											<Label text="CENTRO" id="label0" design="Bold"/>
+										</header>
+									</Column>
+									<Column id="column1" width="65%">
+										<header>
+											<Label text="DESCRIPCIÓN" id="label1" design="Bold"/>
+										</header>
+									</Column>
+		
+								</columns>
+							</Table>
+						</content>
+				
+				
+				
+			</Panel>
+			
+			<Panel xmlns="sap.m" width="auto" expandable="true" expanded="true" id="panel1">
+						<headerToolbar>
+							<Toolbar id="toolbar2">
+								<Title text="Centro"/>
+								<ToolbarSpacer/>
+								
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<Table items="{TabCentro>/DATA}" id="table1" mode="MultiSelect">
+								<items>
+									<ColumnListItem type="Active" id="item1">
+										<cells>
+											<Text text="{TabCentro>Centro}" />
+											<Text text="{TabCentro>Name1}" />
+											<Text text="{TabCentro>Zona}" />
+										</cells>
+									</ColumnListItem>
+								</items>
+								<columns>
+									<Column id="column3" width="25%">
+										<header>
+											<Label text="CENTRO" id="label3" design="Bold"/>
+										</header>
+									</Column>
+									<Column id="column4" width="65%">
+										<header>
+											<Label text="DESCRIPCIÓN" id="label4" design="Bold"/>
+										</header>
+									</Column>
+								</columns>
+							</Table>
+						</content>
+					</Panel>
+					<Panel xmlns="sap.m" width="auto" expandable="true" expanded="true" id="panel2">
+						<headerToolbar>
+							<Toolbar id="toolbar3">
+								<Title text="Sur"/>
+								<ToolbarSpacer/>
+								
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<Table items="{TabSur>/DATA}" id="table2" mode="MultiSelect">
+								<items>
+									<ColumnListItem type="Active" id="item2">
+										<cells>
+											<Text text="{TabSur>Centro}" />
+											<Text text="{TabSur>Name1}" />
+											<Text text="{TabSur>Zona}" />
+										</cells>
+									</ColumnListItem>
+								</items>
+								<columns>
+									<Column id="column5" width="25%">
+										<header>
+											<Label text="CENTRO" id="label5" design="Bold"/>
+										</header>
+									</Column>
+									<Column id="column6" width="65%">
+										<header>
+											<Label text="DESCRIPCIÓN" id="label6" design="Bold"/>
+										</header>
+									</Column>
+								</columns>
+							</Table>
+						</content>
+					</Panel>
+			
+			
+			
+			
+			
+			
+			
+			
+		</content>
+		<buttons>
+			<Button text="Aceptar" press="onCrearPromo" type="Emphasized"/>
+			<Button text="Cancelar" press="onClosePromo" type="Emphasized"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

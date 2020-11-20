@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" id="fragment1">
+	<Dialog title="Campaña y Promociones">
+		<content>
+			<Panel id="idPanelFragCYP">
+			<VBox width="100%" direction="Column"  alignItems="Start">
+			<Text text="Elija el tipo de Promo:"/>
+			</VBox>
+			<!--<VBox width="100%" direction="Column" id="vbox1" alignItems="Center">-->
+			<Select xmlns="sap.m"   width="90%" items="{/PromoCyP}" id="idSelectCyP" >
+				<items>
+					<core:Item xmlns:core="sap.ui.core" key="{Tipopromoc}" text="{Denompromoc}" />
+					
+					<!--<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Promo Normal Cuota" id="item1"/>-->
+					<!--<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Promo Antes Ahora" id="item2"/>-->
+					<!--<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Promo Antes Ahora Cuotas" id="item3"/>-->
+					<!--<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Promo Descuento" id="item4"/>-->
+					<!--<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Promo 2X" id="item5"/>-->
+					<!--<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Promo Gratis" id="item6"/>-->
+					<!--<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Promo Autoliquidable" id="item7"/>-->
+				</items>
+			</Select>
+			<!--</VBox>-->
+			</Panel>
+		</content>
+		<buttons>
+			<Button text="Aceptar" press="onSelectPromo" type="Emphasized"/>
+			<Button text="Cancelar" press="onClose" type="Emphasized"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

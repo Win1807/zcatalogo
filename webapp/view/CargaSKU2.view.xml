@@ -1,0 +1,155 @@
+<mvc:View xmlns:core="sap.ui.core" 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns="sap.m" 
+xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:u="sap.ui.unified" 
+controllerName="ZCatalogoMesa.zcatalogo.controller.CargaSKU2">
+	<App>
+		<pages>
+			<Page title="CARGA SKU/PRECIOS" showNavButton="true" navButtonPress="onBack" id="idTituloPage">
+			
+				<subHeader>
+					
+					<Bar>
+						<contentLeft>
+							
+							<Text xmlns="sap.m" text="CATALOGO N°:" id="idTextNcatalogo"/>
+							
+						</contentLeft>
+						<contentRight>
+							<Button id="NueSku" press="onNewSku" icon="sap-icon://document"/>
+							<Button id="ModSku" press="onModSku" icon="sap-icon://edit"/>
+							<Button id="EliSku" press="onElim" icon="sap-icon://delete"/>
+							<Button id="BajarAr" press="onBajarArchivos" icon="sap-icon://sys-next-page"/>
+							<!--<Button text="Ir a Precios" enabled="true" pressed="true" press="onPress" icon="sap-icon://lead" level="H2" type="Emphasized"/>-->
+						</contentRight>
+					</Bar>
+				</subHeader>
+				<headerContent>
+					<Text xmlns="sap.m" text="Total Registro: 0" class="sapUiTinyMarginBegin sapUiTinyMarginTop sapUiTinyMarginEnd" id="idTextTotal"/>
+				</headerContent>
+				
+				<content>
+					<!--<ScrollContainer  width="100%" horizontal="true" vertical="true" focusable="true">		-->
+					<Table items="{TabSku>/DATA}" id="table1" class="sapUiTinyMarginBegin sapUiTinyMarginTop sapUiTinyMarginEnd" mode="MultiSelect"
+						 growing = "true" growingThreshold = "1000">
+						<!--<headerToolbar>-->
+						<!--	<OverflowToolbar>-->
+						<!--		<content>-->
+						<!--			<SearchField liveChange="onSearch" width="auto" id="idSearch"/>-->
+									<!--<Button xmlns="sap.m" id="button0" icon="sap-icon://download" type="Ghost" press="onBajarExcel" text="Bajar Excel"/>-->
+									<!--<Button xmlns="sap.m" id="button1" icon="sap-icon://upload" type="Ghost" press="onBack" text="Subir Excel"/>-->
+									<!--<Button xmlns="sap.m" id="button2" icon="sap-icon://refresh" type="Ghost" press="onRefresh"/>-->
+						<!--		</content>-->
+						<!--	</OverflowToolbar>-->
+						<!--</headerToolbar>-->
+						
+						<items>
+							<ColumnListItem type="Active" id="item1" selected="true"  highlight="{TabSku>Estado}">
+									
+								<!--<Link text="v1" href="url" />-->
+								<cells>
+									<Link text="{TabSku>IdSku}" id="text1" press="onLinkAccion"/>
+									<Text text="{TabSku>NomSku}" id="text2"/>
+									<Text text="{TabSku>AtributoSur}" id="text3"/>
+									<Text text="{TabSku>Seccion}" id="text4"/>
+									<Text text="{TabSku>NPagina}" id="text5"/>
+									<Text text="{TabSku>PrinRela}" id="text6"/>
+									<Text text="{TabSku>NormDest}" id="text7"/>
+									<Text text="{TabSku>PromComb}" id="text8"/>
+									<Text text="{TabSku>IdCombo}" id="text9"/>
+									<Text text="{TabSku>Grilla}" id="text10"/>
+									<Text text="{TabSku>Idposnr}" id="text11"/>
+									<Text text="{TabSku>Vrkme}" id="text12"/>
+									<Text text="{TabSku>Idparte}" id="text13"/>
+									<Text text="{TabSku>Nomprocom}" id="text15"/>
+									<Text text="{TabSku>Excel}" id="text14"/>
+									<Text text="{TabSku>SeccionE}" id="text16"/>
+									<Text text="{TabSku>Matnrprin}" id="text17"/>
+									<Text text="{TabSku>Maktxprin}" id="text18"/>
+									<Text text="{TabSku>Matnrrem}" id="text19"/>
+									<Text text="{TabSku>Maktxrem}" id="text20"/>
+									
+									<!--<ObjectStatus text="{path:'mainService>Status', formatter:'.formatPurposeStatus'}"-->
+                                <!--state="{path:'mainService>Status', formatter:'.formatStatusColor'}"/>-->
+								</cells>
+							</ColumnListItem>
+						</items>
+						
+						<columns>
+						
+							<Column id="column1" visible="true" demandPopin="true" hAlign="Center" width="8%">
+								<header>
+									<Label text="N° SKU" id="label1"/>
+								</header>
+							</Column>
+							<Column id="column2" visible="true" demandPopin="true" width="16%">
+								<header>
+									<Label text="DESCRIPCIÓN" id="label2"/>
+								</header>
+							</Column>
+							<Column id="column3" visible="true" demandPopin="true" hAlign="Center" width="8%">
+								<header>
+									<Label text="ATRB.SURT" id="label3"/>
+								</header>
+							</Column>
+							<Column id="column4" demandPopin="true" hAlign="Center" width="8%">
+								<header>
+									<Label text="SECCIÓN" id="label4"/>
+								</header>
+							</Column>
+							<Column id="column5" demandPopin="true" hAlign="Center" width="8%">
+								<header>
+									<Label text="N°.PÁGINA" id="label5"/>
+								</header>
+							</Column>
+							<Column id="column6" demandPopin="true">
+								<header>
+									<Label text="PRINC/RELA" id="label6"/>
+								</header>
+							</Column>
+							<Column id="column7" demandPopin="true">
+								<header>
+									<Label text="NORMAL/DEST" id="label7"/>
+								</header>
+							</Column>
+							<Column id="column8" demandPopin="true">
+								<header>
+									<Label text="PROMO/COMBO" id="label8"/>
+								</header>
+							</Column>
+							<!--<Column id="column9" demandPopin="true">-->
+							<!--	<header>-->
+							<!--		<Label text="DESCRIPCION PROMO" id="label11"/>-->
+							<!--	</header>-->
+							<!--</Column>-->
+							<Column id="column10" demandPopin="true">
+								<header>
+									<Label text="ID.COMBO" id="label9"/>
+								</header>
+							</Column>
+							<Column id="column11" demandPopin="true" hAlign="Center" width="8%">
+								<header>
+									<Label text="GRILLA" id="label10"/>
+								</header>
+							</Column>
+						</columns>
+
+					</Table>
+					<!--</ScrollContainer>-->
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<!--<Button text="Validar" type="Accept" id="ValSku" press="onClick" icon="sap-icon://survey"/>-->
+						<!--<Button text="Guardar Excel" type="Accept" id="CarSku" press="onGuardar" icon="sap-icon://save"/>-->
+						<!--<Button text="Subirr Excel" type="Accept" id="SubExcel" press="onSubExcel" icon="sap-icon://sys-prev-page"/>-->
+						<u:FileUploader id="fileUploader" style="Accept" buttonText="Subir Excel" change="handleUploadPress" icon="sap-icon://upload"
+							buttonOnly="true"/>
+						<Button text="Ir a Precios" enabled="true" pressed="true" press="onPrecios" icon="sap-icon://lead" level="H2" type="Accept"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

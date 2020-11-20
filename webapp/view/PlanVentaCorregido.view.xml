@@ -1,0 +1,22 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:u="sap.ui.unified"
+	controllerName="ZCatalogoMesa.zcatalogo.controller.PlanVentaCorregido" displayBlock="true">
+	<Page id="page" title="Plan Venta Corregido" showHeader="true" enableScrolling="true" showNavButton="true" navButtonPress="onBack">
+		<content>
+			<ObjectHeader title="Catalogo N°: {catalogaModel>/CatalogData/IdCatalogo}" condensed="true" number="0" numberUnit="Total registro"
+				id="idHeadAb">
+				<ObjectAttribute text="Descripción: {catalogaModel>/CatalogData/NomCatalogo}" id="idHeadDesc"/>
+			</ObjectHeader>
+			<ScrollContainer horizontal="true" width="100%">
+				<Table id="tablaPlanVentaCorregido"/>
+			</ScrollContainer>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://download" type="Ghost" press="onPressDescargarExcel" text="Bajar Excel"/>
+				<u:FileUploader id="fileUploader" style="Ghost" buttonText="Subir Excel" change="onChangefileUploaderPlanVentas" icon="sap-icon://upload" buttonOnly="true"/>
+				<Button text="Guardar" type="Accept" id="BtCatalog" press="onGuardarVentaCorregido"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,76 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Inserta/Modificar SKU" contentWidth="60%">
+		<content>
+			<Panel id="IdPanelFragment">
+				<f:SimpleForm 
+				id="FieldGroupView" 
+				minWidth="1024" 
+				maxContainerCols="2" 
+				layout="ResponsiveGridLayout" 
+				
+				
+				labelSpanM="3" 
+				
+				emptySpanL="4" 
+				emptySpanM="0" 
+				adjustLabelSpan="true" 
+				columnsL="2" columnsM="2"
+					validateFieldGroup="onValidateFieldGroup">
+					<f:content>
+						<Label text="N°SKU "/>
+						<Input fieldGroupIds="SKU" id="IdSkuFrag" width="50%" change="onValidarSku"/>
+						<Label text="Descripción SKU "/>
+						<Input fieldGroupIds="SKU" id="IdSkuDescriFrag" width="80%" blocked="true"/>
+						<Label text="N° Pagina"/>
+						<Input fieldGroupIds="SKU" id="IdNPaginaFrag" width="50%"/>
+						<Label text="Principal/Relacionado" />
+						<!--<Select xmlns="sap.m" width="90%" items="{/PromoCyP}" id="idSelectCyP">-->
+						<Select xmlns="sap.m" id="idSelectPR" width="50%"  change="onCambiarPrincRela">
+							<items>
+								<!--<core:Item xmlns:core="sap.ui.core" key="{Tipopromoc}" text="{Denompromoc}" />-->
+								<core:Item xmlns:core="sap.ui.core" key="01" text="Principal" id="item1"/>
+								<core:Item xmlns:core="sap.ui.core" key="02" text="Relacionado" id="item2"/>
+							</items>
+						</Select>
+						<Label text="Sku Principal" />
+						<Input fieldGroupIds="SKU" id="IdSkuPrinFrag" width="50%" change="onValidarSkuPrinc" blocked="true"/>
+						<Label text="Descripción SKU Principal "/>
+						<Input fieldGroupIds="SKU" id="IdSkuDescriPrincFrag" width="80%" blocked="true"/>
+						
+						<Label text="Normal/Destacado"/>
+						<Select xmlns="sap.m" id="idSelectND" width="50%">
+							<items>
+								<!--<core:Item xmlns:core="sap.ui.core" key="{Tipopromoc}" text="{Denompromoc}" />-->
+								<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Normal" id="item3"/>
+								<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Destacado" id="item4"/>
+							</items>
+						</Select>
+						<Label text="Promo/Combo"/>
+						<Select xmlns="sap.m" id="idSelectPC" width="50%">
+							<items>
+								<!--<core:Item xmlns:core="sap.ui.core" key="{Tipopromoc}" text="{Denompromoc}" />-->
+								<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="" id="item7"/>
+								<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Promo" id="item5"/>
+								<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Combo" id="item6"/>
+							</items>
+						</Select>
+						<Label text="Nombre Promo"/>
+						<Input fieldGroupIds="Grilla" id="IdNomPromo" width="80%"/>
+						<Label text="ID Combo"/>
+						<Input fieldGroupIds="Grilla" id="IdComboFrag" width="50%"/>
+						<Label text="Grilla"/>
+						<Input fieldGroupIds="Grilla" id="IdNGrillaFrag" width="50%"/>
+						<Label text="SKU de Remplazo"/>
+						<Input fieldGroupIds="Grilla" id="IdSkuRem" width="50%" change="onValidarSku"/>
+						<Label text="Descripción SKU Relacionado "/>
+						<Input fieldGroupIds="SKU" id="IdSkuRemDes" width="80%" blocked="true"/>
+					</f:content>
+				</f:SimpleForm>
+			</Panel>
+		</content>
+		<buttons>
+			<Button text="Aceptar" press="onAceptarFrag" type="Emphasized"/>
+			<Button text="Cancelar" press="onCancelarFrag" type="Emphasized"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
